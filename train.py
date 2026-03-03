@@ -12,7 +12,7 @@ torch._dynamo.config.suppress_errors = True
 # ----------------------------------------------------------------
 # Model config
 # ----------------------------------------------------------------
-MAX_SEQ_LENGTH = 512  # Keep low for 8GB VRAM
+MAX_SEQ_LENGTH = 384  # Keep low for 8GB VRAM
 MODEL_NAME = "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit"
 OUTPUT_DIR = "models/terraria-guide"
 
@@ -32,7 +32,7 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 # ----------------------------------------------------------------
 model = FastLanguageModel.get_peft_model(
     model,
-    r=8,                          # LoRA rank — good balance for 8GB
+    r=4,                          # LoRA rank — real low
     target_modules=[
         "q_proj", "k_proj", "v_proj", "o_proj",
         "gate_proj", "up_proj", "down_proj",
@@ -63,6 +63,7 @@ dataset = load_dataset(
     split="train"
 )
 dataset = dataset.map(format_prompt)
+dataset = dataset.filter(lambda x: len(x["text"]) < 2000)
 print(f"Dataset size: {len(dataset)} pairs")
 
 # ----------------------------------------------------------------
@@ -71,7 +72,7 @@ print(f"Dataset size: {len(dataset)} pairs")
 training_args = TrainingArguments(
     output_dir=OUTPUT_DIR,
     per_device_train_batch_size=1,       # Must be 1 for 8GB
-    gradient_accumulation_steps=8,       # Effective batch size = 8
+    gradient_accumulation_steps=4,       # Effective batch size = 8
     warmup_steps=50,
     num_train_epochs=1,
     learning_rate=2e-4,
@@ -99,6 +100,7 @@ trainer = SFTTrainer(
     max_seq_length=MAX_SEQ_LENGTH,
     dataset_num_proc=2,
     args=training_args,
+    packing=False,
 )
 
 print("Starting training...")
