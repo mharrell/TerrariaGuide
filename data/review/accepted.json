@@ -1,0 +1,7 @@
+[
+  {
+    "instruction": "What changes have been made to Proximity Mine Launcher across Terraria updates?",
+    "input": "",
+    "output": "- Desktop 1.4.0.1: Now does 3× damage when mines are stationary, normal damage when they are still moving.\n- Use time increased from 40 to 50.\n- Reduced the number of mines that can be active at once.\n- Desktop 1.3.0.1: Damage increased from 45 to 80.\n- Use time increased from 30 to 40.\n- Desktop 1.2: Introduced.\n- Console 1.02: Introduced.\n- Switch 1.0.711.6: Introduced.\n- Mobile 1.2.6508: Introduced.\n- 3DS-Release: Introduced. (applies to: PC/Desktop, Mobile, Console, 3DS (legacy))\n\nFor more information, see: https://terraria.wiki.gg/wiki/Proximity_Mine_Launcher"
+  }
+]
