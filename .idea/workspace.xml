@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="73184b50-80ad-49c6-849a-1e7ea4d65e22" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraria_train.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/terraria_train.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +228,7 @@
       <updated>1772245349094</updated>
       <workItem from="1772245350130" duration="28199000" />
       <workItem from="1772398697675" duration="196000" />
-      <workItem from="1772398905346" duration="11944000" />
+      <workItem from="1772398905346" duration="13255000" />
     </task>
     <servers />
   </component>
